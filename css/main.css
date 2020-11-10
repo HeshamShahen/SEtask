@@ -1,0 +1,233 @@
+/** main rules **/
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Pacifico', 'cursive', 'Changa', sans-serif;
+    margin: 0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Pacifico', cursive
+}
+.container{
+	max-width: 1170px;
+	overflow: hidden;
+	margin: 0 auto
+} /** end rules **/
+
+/** start animation **/
+@keyframes disappear{
+	0%{
+		opacity: 1;
+        visibility: visible
+	}
+    99%{
+		opacity: 1;
+        visibility: visible
+	}
+	100%{
+		opacity: 0;
+        visibility: hidden
+	}
+}
+@keyframes load{
+	20%{
+		transform: rotate(0deg)
+	}
+    
+	100%{
+		transform: rotate(360deg)
+	}
+}
+@keyframes translate{
+    0%{
+        -webkit-transform: translateY(-150px);
+           -moz-transform: translateY(-150px);
+                transform: translateY(-150px);
+        opacity: 0
+    }
+    15%{
+		opacity: .05
+    }
+    100%{
+        -webkit-transform: none;
+           -moz-transform: none;
+                transform: none;
+        opacity: 1
+    }
+}
+@keyframes slideShow{
+    0%{
+        background-image: url(../images/slide.jpg)
+    }
+	50%{
+        background-image: url(../images/slide1-1.jpg)
+    }
+    100%{
+        background-image: url(../images/slide2-2.jpg)
+    }
+}
+/** loading rules **/
+.load{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: #fab347;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5000;
+    animation: disappear 8s linear forwards
+}
+.load div{
+	position: relative;
+	width: 5px;
+	height: 70px;
+	background: none;
+	margin: 250px -5px;
+	display: inline-block;
+	-webkit-animation: load .7s ease-in-out infinite;
+       -moz-animation: load .7s ease-in-out infinite;
+            animation: load .7s ease-in-out infinite 
+}
+.load div:nth-of-type(2){
+    -webkit-animation-delay: 0.20s;
+       -moz-animation-delay: 0.20s;
+            animation-delay: 0.20s
+}
+.load div:last-of-type{
+    -webkit-animation-delay: 0.40s;
+       -moz-animation-delay: 0.40s;
+            animation-delay: 0.40s
+}
+
+.load div:before{
+	content: "";
+	position: absolute;;
+	top: 0;
+	left: 0;
+	width: 10px;
+	height: 10px;
+	background-color: #fff;
+	border-radius: 50%
+}
+.load div:nth-of-type(2):before{
+	background-color: #00BAD9
+}
+.load div:last-of-type:before{
+	background-color: #FF5151;
+}
+}
+.wrapper{
+	position: relative;
+	width: 100%
+}
+.wrapper header{
+	width: 100%;
+	height: 760px;
+	position: relative;
+	color: #fff;
+	background-image: url(../images/slide.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	transition: all .5s ease;
+	animation: slideShow 7s ease-in-out 3s infinite alternate
+}
+
+.wrapper header nav{
+	overflow: hidden
+}
+.wrapper header nav .logo{
+	float: left;
+	height: 100px;
+	width: 280px
+}
+.wrapper header nav .logo img{
+	width: 100%;
+	height: 100%
+}
+.wrapper header nav ul{
+	float: right;
+	list-style: none;
+	
+}
+.wrapper header nav ul li{
+	position: relative;
+	display: inline-block;
+	padding: 10px 15px;
+	text-transform: capitalize;
+	cursor: pointer;
+	color: rgba(225,225,225,.7)
+}
+.wrapper header nav ul li:before{
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 15px;
+	padding: 10px 0;
+	display: inline-block;
+	color: #fff;
+	height: 100%;
+	width: 0;
+	overflow: hidden;
+	transition: width .8s ease
+}
+.wrapper header nav ul li:hover:before{
+	width: 80%
+}
+.wrapper header form{
+	float: right;
+	width: 300px;
+	background-color: rgba(0, 0, 0, .5);
+	padding: 10px 20px;
+	text-align: center;
+	border-top: 10px solid #fab347;
+    -webkit-transform: translateY(-150px);
+       -moz-transform: translateY(-150px);
+            transform: translateY(-150px);
+    opacity: 0;
+	animation: translate 1s ease-in-out 8s forwards
+}
+.wrapper header form *{
+	text-transform: uppercase
+}
+.wrapper header form input:not([type='submit']){
+	display: block;
+	width: 100%;
+	padding: 5px 20px;
+	border: 1px solid rgba(0, 0, 0, .3);
+	background-color: rgba(0, 0, 0, .7);
+	border-radius: 10px;
+	margin-bottom: 5px
+}
+.wrapper header form input:not([type='submit']):focus{
+	background-color: rgba(250, 179, 71, 0.08);
+	border: 1px solid rgb(250, 179, 71)
+}
+.wrapper header form input[type='submit']{
+	position: relative;
+	display: block;
+	width: 150px;
+	padding: 10px;
+	border: 1px solid #fff;
+	background-color: transparent;
+	border-radius: 6px;
+	margin: 20px auto;
+	transition: all .5s ease
+}
+.wrapper header form input[type='submit']:hover{
+	background-color: rgb(250, 179, 71);
+	border-color: rgb(250, 179, 71)
+}
+
+
+
+
+
+
+
+
+
+
